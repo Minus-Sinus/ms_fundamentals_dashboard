@@ -1,0 +1,667 @@
+/* Stylize text box */
+#q
+{
+    /* Override typeahead.js's transparent background */
+    background-color: #ffffff !important;
+
+    /* Text box's width */
+    width: 300px;
+}
+
+/* Stylize typeahead.js a la http://twitter.github.io/typeahead.js/css/examples.css */
+.tt-menu
+{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 1px;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 300px;
+}
+
+
+.tt-suggestion.tt-cursor {
+    background-color: #0097cf;
+    color: #fff;
+    cursor: pointer;
+}
+.tt-suggestion {
+    margin: 0;
+    padding: 6px 12px;
+}
+
+
+
+.container-fluid
+{
+    /* Height of these elements */
+    height: 100%;
+
+    /* No margin around these elements */
+    margin: 0;
+
+    /* Disable scrollbars */
+    overflow: hidden;
+
+    /* No padding within these elements */
+    padding: 0;
+}
+
+
+
+.select_box
+{
+	border-width: 0px;
+	border-color: transparent;
+}
+
+p5_new
+{
+	padding:1rem;
+}
+
+td
+{
+    text-align:left; padding: 3px 3px 3px 3px;
+    border-style:solid;
+    border-width: 0px 0px 1px 0px;
+    border-color:#999999;
+}
+
+.left_axis
+{
+	color: #152F81;
+	font-size: 10px;
+	font-weight:bold;
+	text-align: left;
+	width:50%;
+	display: inline-block;
+	word-wrap:normal;
+}
+
+.right_axis
+{
+	color: #C00000;
+	font-size: 10px;
+	font-weight:bold;
+	text-align: right;
+	width:50%;
+	display: inline-block;
+	word-wrap:normal;
+}
+
+.dashboard
+{
+	background-color: #BECDD7;
+}
+
+table
+{
+    max-width:700px;
+    border-color: transparent;
+}
+
+
+.navbar-dark .navbar-brand {
+    color: #152F81;
+}
+
+.cont_dashboard
+{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    display: grid;
+}
+
+
+.g_chart
+{
+
+	width:100%;
+	height:120px;
+
+	vertical-align: middle;
+	align-content: center;
+}
+
+
+.column
+{
+	background-color: #BECDD7;
+	min-width: 260px;
+	spacing: 10px 0px 10px 0px;
+	/* display:inline; */
+
+}
+
+.tile
+{
+	margin: 5px;
+	padding: 5px;
+	background-color: #ffffff;
+	text-align: left;
+	white-space: nowrap;
+    max-height:15%;
+    align-content: center;
+}
+
+.col_headline
+{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	border-bottom-width:2px;
+	border-color:#ffffff;
+	border-spacing:2px;
+	font-size:16px;
+
+}
+
+
+.navbar {
+    background-color:#BECDD7;
+}
+
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+    color: #ffffff;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #ffffff;
+}
+nav .navbar-brand .red
+{
+    color: #ffffff;
+}
+nav .navbar-brand .yellow
+{
+    color: #ffffff;
+}
+nav .navbar-brand .green
+{
+    color: #ffffff;
+}
+
+.form-group
+{
+	width: 300px;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+/*
+Styles for older IE versions (previous to IE9).
+*/
+
+custom-background-empty {
+	background-color: #fff;
+}
+custom-background-empty .site,
+custom-background-white .site {
+	box-shadow: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+.assistive-text,
+.site .screen-reader-text {
+	clip: rect(1px 1px 1px 1px);
+}
+.full-width .site-content {
+	float: none;
+	width: 100%;
+}
+size-full,
+size-large,
+header-image,
+wp-post-image,
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
+}
+.author-avatar {
+	float: left;
+	margin-top: 8px;
+	margin-top: 0.571428571rem;
+}
+.author-description {
+	float: right;
+	width: 80%;
+}
+.site {
+	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+	margin: 48px auto;
+	max-width: 960px;
+	overflow: hidden;
+	padding: 0 40px;
+}
+.site-content {
+	float: left;
+	width: 65.104166667%;
+}
+template-front-page .site-content,
+attachment .site-content,
+full-width .site-content {
+	width: 100%;
+}
+.widget-area {
+	float: right;
+	width: 26.041666667%;
+}
+
+.site-header h1 {
+	font-size: 26px;
+	line-height: 1.846153846;
+	text-align: left;
+}
+.main-navigation ul.nav-menu,
+.main-navigation div.nav-menu > ul {
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #ededed;
+	display: inline-block !important;
+	text-align: left;
+	width: 100%;
+}
+.main-navigation ul {
+	margin: 0;
+	text-indent: 0;
+}
+.main-navigation li a,
+.main-navigation li {
+	display: inline-block;
+	text-decoration: none;
+}
+.ie7 .main-navigation li a,
+.ie7 .main-navigation li {
+	display: inline;
+}
+.main-navigation li a {
+	border-bottom: 0;
+	color: #ffffff;
+	line-height: 3.692307692;
+	text-transform: uppercase;
+}
+.main-navigation li a:hover {
+	color: #000;
+}
+.main-navigation li {
+	margin: 0 40px 0 0;
+	position: relative;
+}
+.main-navigation li ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 1;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+.ie7 .main-navigation li ul {
+	clip: inherit;
+	display: none;
+	left: 0;
+	overflow: visible;
+}
+.main-navigation li ul ul,
+.ie7 .main-navigation li ul ul {
+	top: 0;
+	left: 100%;
+}
+.main-navigation ul li:hover > ul,
+.main-navigation ul li:focus > ul,
+.main-navigation .focus > ul {
+	border-left: 0;
+	clip: inherit;
+	overflow: inherit;
+	height: inherit;
+	width: inherit;
+}
+.ie7 .main-navigation ul li:hover > ul,
+.ie7 .main-navigation ul li:focus > ul {
+	display: block;
+}
+.main-navigation li ul li a {
+	background: #BECDD7;
+	border-bottom: 1px solid #ededed;
+	display: block;
+	font-size: 11px;
+	line-height: 2.181818182;
+	padding: 8px 10px;
+	width: 180px;
+}
+.main-navigation li ul li a:hover {
+	background: #e3e3e3;
+	color: #444;
+}
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a,
+.main-navigation .current_page_item > a,
+.main-navigation .current_page_ancestor > a {
+	color: #000000;
+	font-weight: bold;
+}
+.main-navigation .menu-toggle {
+	display: none;
+}
+.entry-header .entry-title {
+	font-size: 22px;
+}
+#respond form input[type="text"] {
+	width: 46.333333333%;
+}
+#respond form textarea.blog-textarea {
+	width: 79.666666667%;
+}
+.template-front-page .site-content,
+.template-front-page article {
+	overflow: hidden;
+}
+.template-front-page.has-post-thumbnail article {
+	float: left;
+	width: 47.916666667%;
+}
+.entry-page-image {
+	float: right;
+	margin-bottom: 0;
+	width: 47.916666667%;
+}
+/* IE Front Page Template Widget fix */
+.template-front-page .widget-area {
+	clear: both;
+}
+.template-front-page .widget {
+	width: 100% !important;
+	border: none;
+}
+.template-front-page .widget-area .widget,
+.template-front-page .first.front-widgets,
+.template-front-page.two-sidebars .widget-area .front-widgets {
+	float: left;
+	margin-bottom: 24px;
+	width: 51.875%;
+}
+.template-front-page .second.front-widgets,
+.template-front-page .widget-area .widget:nth-child(odd) {
+	clear: right;
+}
+.template-front-page .first.front-widgets,
+.template-front-page .second.front-widgets,
+.template-front-page.two-sidebars .widget-area .front-widgets + .front-widgets {
+	float: right;
+	margin: 0 0 24px;
+	width: 39.0625%;
+}
+.template-front-page.two-sidebars .widget,
+.template-front-page.two-sidebars .widget:nth-child(even) {
+	float: none;
+	width: auto;
+}
+/* add input font for <IE9 Password Box to make the bullets show up */
+input[type="password"] {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+/* RTL overrides for IE7 and IE8
+-------------------------------------------------------------- */
+.rtl .site-header h1,
+.rtl .site-header h2 {
+	text-align: right;
+}
+.rtl .widget-area,
+.rtl .author-description {
+	float: left;
+}
+.rtl .author-avatar,
+.rtl .site-content {
+	float: right;
+}
+.rtl .main-navigation ul.nav-menu,
+.rtl .main-navigation div.nav-menu > ul {
+	text-align: right;
+}
+.rtl .main-navigation ul li ul li,
+.rtl .main-navigation ul li ul li ul li {
+	margin-left: 40px;
+	margin-right: auto;
+}
+.rtl .main-navigation li ul ul {
+	position: absolute;
+	bottom: 0;
+	right: 100%;
+	z-index: 1;
+}
+.ie7 .rtl .main-navigation li ul ul {
+	position: absolute;
+	bottom: 0;
+	right: 100%;
+	z-index: 1;
+}
+.ie7 .rtl .main-navigation ul li {
+	z-index: 99;
+}
+.ie7 .rtl .main-navigation li ul {
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	z-index: 1;
+}
+.ie7 .rtl .main-navigation li {
+	margin-right: auto;
+	margin-left: 40px;
+}
+.ie7 .rtl .main-navigation li ul ul ul {
+	position: relative;
+	z-index: 1;
+}
+
+img {border: none; box-shadow:none;}
+
+title {text-align: center; color:#ffffff;}
+
+
+
+@media only screen and (min-width: 910px) {
+	.main-navigation .primary-menu > li {
+		display: inline-block;
+		float: none;
+	}
+	.main-navigation ul {
+		text-align: left;
+	}
+}
+
+.entry-content a:visited,
+.comment-content a:visited {
+  color: #152F81;}
+
+.imgbackground
+{
+	background-image: url("https://www.minussinus.de/wp-content/uploads/2018/10/Hamburg_harbour_blue.jpg");
+	background-color: transparent;
+	background-size: 100%;
+	background-position-y: center;
+	width: 100%;
+	height: 100%;
+	margin:0px;
+	padding:20px;
+}
+
+.btn-primary
+{
+	color: #fff;
+    background-color:  #404A57;
+    border-color:  #404A57;
+}
+
+
+
+a:visited {color: #152F81;}
+
+title {text-align: center; color: #BECDD7;}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #353535;
+	background-color: #ffffff;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-family: Arial, Tahoma;
+	line-height: 1.75;
+}
+
+button
+{
+    color: #fff;
+	background-color: #404A57;
+}
+
+
+body
+{
+	background-color: #BECDD7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: 0.1em 0 0.1em;
+	line-height: 1.0;
+    color: #152F81;
+}
+
+
+h1 {
+	font-size: 32px;
+	font-size: 2rem;
+	margin-block-start: 0.12em;
+    margin-block-end: 0.12em;
+}
+
+h2 {
+	font-size: 26px;
+	font-size: 1.625rem;
+}
+
+
+h3 {
+	font-size: 22px;
+	font-size: 1.375rem;
+}
+
+h4 {
+	font-size: 14px;
+	font-size: 1.25rem;
+	color:#ffffff;
+	margin: 0.1em 0px 0.1em 0px;
+	line-height: 1.0;
+}
+
+
+
+h5 {
+	font-size: 13px;
+	font-weight:bold;
+}
+
+h6 {
+	font-size: 11px;
+}
+
+p {
+	margin-bottom: 1.25em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	overflow: auto;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	max-width: 100%;
+	border: 1px solid rgba(0,0,0,0.075);
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	line-height: 1.6;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-size: 15px;
+	font-size: 0.9375rem;
+
+
+: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+
