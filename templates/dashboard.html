@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ SelectionName }}
+{% endblock %}
+
+{% block main %}
+
+    <!-- http://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- http://getbootstrap.com/ -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- https://github.com/corejavascript/typeahead.js/blob/master/doc/jquery_typeahead.md -->
+    <script src="https://cdn.rawgit.com/corejavascript/typeahead.js/master/dist/typeahead.jquery.js"></script>
+
+    <!-- http://handlebarsjs.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- app's own JavaScript, mainly for typeahead -->
+    <script src="/static/scripts.js"></script>
+
+
+    <!-- ************  Google Chart Header Script ******************************************************** -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['line', 'corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var ctr = 0;
+
+      var data = []
+
+      {% for chart_info in charts_info %}
+        var col = ~~(ctr / 3) + 1;
+        var rw = ctr % 3 + 1;
+
+        var div_name ='chart_div_C' + col.toString() + '_R' + rw.toString();
+
+        var chartDiv = document.getElementById(div_name);
+
+        // var chart_info = charts_info[ctr];
+
+        data[ctr] = new google.visualization.DataTable();
+
+        data[ctr].addColumn('string', 'Time');
+        data[ctr].addColumn('number', "{{ chart_info['left_title'] }}");
+        data[ctr].addColumn('number', "{{ chart_info['right_title'] }}");
+
+        {% for datapoint in chart_info['chart_data']%}
+          data[ctr].addRows([['\'{{ datapoint.xLabel }}', {{ datapoint.Left }} / {{ chart_info['y_axis_factor_left']}}, {{ datapoint.Right }} / {{ chart_info['y_axis_factor_right']}}]]);
+        {% endfor %}
+
+        var classicOptions = {
+          series: {
+            0: {targetAxisIndex: 0, color:'#152F81', axis:'Left'},
+            1: {targetAxisIndex: 1, color:'#C00000', axis:'Right'}
+          },
+
+          legend: 'none',
+
+          hAxes: {
+            1: { showTextEvery: 8, baselineColor:'#152F81', textStyle: { color: '#404A57'}},
+            0: { showTextEvery: 8, baselineColor:'#C00000', textStyle: { color: '#404A57'}}
+          },
+
+          vAxes: {
+            1: {title: '', gridlines: {color: 'transparent'}, baselineColor:'#C00000', Width: 5,
+                textStyle: { color: '#C00000', bold:true},
+                format:'#,##0.00',
+                viewWindowMode:'explicit',
+                viewWindow: {
+                  min: '{{ chart_info.y_min_right }}'
+                }
+            },
+            0: {title: '', gridlines: {color: 'transparent'}, baselineColor:'#152F81',
+                textStyle: { color: '#152F81', bold:true},
+                format:'#,##0.00',
+                viewWindowMode:'explicit',
+                viewWindow: {
+                  min: '{{ chart_info.y_min_left }}'
+                }
+            }
+          },
+
+        };
+
+        var classicChart = new google.visualization.LineChart(chartDiv);
+        classicChart.draw(data[ctr], classicOptions);
+        ctr = ctr + 1;
+      {% endfor %}
+
+    }
+
+    $(window).resize(function(){
+      drawChart();
+    });
+    </script>
+    <!-- ************  END Google Chart Header Script ******************************************************** -->
+
+        <!-- Fill viewport -->
+        <div>
+            <!-- http://getbootstrap.com/css/#forms -->
+            <form id="form" name="change_stock" action="/dashboard" method="post">
+                <div class="form-group">
+                    <label class="sr-only" for="q">Stock name or symbol</label>
+                    <input class="form-control" id="q" name="name_symbol" placeholder="Stock name or symbol" autocomplete="off" type="text"/>
+                </div>
+            </form>
+        </div>
+
+    <!-- https://developers.google.com/chart/interactive/docs/gallery/linechart /-->
+
+    <div id="container" class="cont_dashboard" style="width: 100%">
+      <div id="Column1" class="column">
+        <div id="Column1 header" class="col_headline">Revenue and gross profit</div>
+        <div id="Tile_C1_R1" class="tile">
+          <h5 class="tile">{{ charts_info[0]['chart_title'] }}</h5>
+          <div id="C1_R1_left_axis" class="left_axis">{{ charts_info[0]['left_title'] }}</div>
+          <div id="C1_R1_right_axis" class="right_axis">{{ charts_info[0]['right_title'] }}</div>
+          <div id="chart_div_C1_R1"class="g_chart"></div>
+        </div>
+        <div id="Tile_C1_R2" class="tile">
+          <h5 class="tile">{{ charts_info[1]['chart_title'] }}</h5>
+          <div id="C1_R2_left_axis" class="left_axis">{{ charts_info[1]['left_title'] }}</div>
+          <div id="C1_R2_right_axis" class="right_axis">{{ charts_info[1]['right_title'] }}</div>
+          <div id="chart_div_C1_R2"class="g_chart"></div>
+        </div>
+        <div id="Tile_C1_R3" class="tile">
+          <h5 class="tile">{{ charts_info[2]['chart_title'] }}</h5>
+          <div id="C1_R3_left_axis" class="left_axis">{{ charts_info[2]['left_title'] }}</div>
+          <div id="C1_R3_right_axis" class="right_axis">{{ charts_info[2]['right_title'] }}</div>
+          <div id="chart_div_C1_R3"class="g_chart"></div>
+        </div>
+      </div>
+
+      <div id="Column2" class="column">
+        <div id="Column2 header" class="col_headline">Profitability</div>
+        <div id="Tile_C2_R1" class="tile">
+          <h5 class="tile">{{ charts_info[3]['chart_title'] }}</h5>
+          <div id="C1_R1_left_axis" class="left_axis">{{ charts_info[3]['left_title'] }}</div>
+          <div id="C1_R1_right_axis" class="right_axis">{{ charts_info[3]['right_title'] }}</div>
+          <div id="chart_div_C2_R1"class="g_chart"></div>
+        </div>
+        <div id="Tile_C2_R2" class="tile">
+          <h5 class="tile">{{ charts_info[4]['chart_title'] }}</h5>
+          <div id="C1_R2_left_axis" class="left_axis">{{ charts_info[4]['left_title'] }}</div>
+          <div id="C1_R2_right_axis" class="right_axis">{{ charts_info[4]['right_title'] }}</div>
+          <div id="chart_div_C2_R2"class="g_chart"></div>
+        </div>
+        <div id="Tile_C2_R3" class="tile">
+          <h5 class="tile">{{ charts_info[5]['chart_title'] }}</h5>
+          <div id="C1_R3_left_axis" class="left_axis">{{ charts_info[5]['left_title'] }}</div>
+          <div id="C1_R3_right_axis" class="right_axis">{{ charts_info[5]['right_title'] }}</div>
+          <div id="chart_div_C2_R3"class="g_chart"></div>
+        </div>
+     </div>
+
+      <div id="Column3" class="column">
+        <div id="Column3 header" class="col_headline">Financial health</div>
+        <div id="Tile_C3_R1" class="tile">
+          <h5 class="tile">{{ charts_info[6]['chart_title'] }}</h5>
+          <div id="C1_R1_left_axis" class="left_axis">{{ charts_info[6]['left_title'] }}</div>
+          <div id="C1_R1_right_axis" class="right_axis">{{ charts_info[6]['right_title'] }}</div>
+          <div id="chart_div_C3_R1"class="g_chart"></div>
+        </div>
+        <div id="Tile_C3_R2" class="tile">
+          <h5 class="tile">{{ charts_info[7]['chart_title'] }}</h5>
+          <div id="C1_R2_left_axis" class="left_axis">{{ charts_info[7]['left_title'] }}</div>
+          <div id="C1_R2_right_axis" class="right_axis">{{ charts_info[7]['right_title'] }}</div>
+          <div id="chart_div_C3_R2"class="g_chart"></div>
+        </div>
+        <div id="Tile_C3_R3" class="tile">
+          <h5 class="tile">{{ charts_info[8]['chart_title'] }}</h5>
+          <div id="C1_R3_left_axis" class="left_axis">{{ charts_info[8]['left_title'] }}</div>
+          <div id="C1_R3_right_axis" class="right_axis">{{ charts_info[8]['right_title'] }}</div>
+          <div id="chart_div_C3_R3"class="g_chart"></div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
